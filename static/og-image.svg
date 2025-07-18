@@ -1,0 +1,52 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E40AF;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="rgba(0,0,0,0.2)"/>
+    </filter>
+  </defs>
+  
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Main logo circle -->
+  <circle cx="300" cy="315" r="120" fill="white" filter="url(#shadow)"/>
+  
+  <!-- JSON Brackets -->
+  <path d="M240 255C235.582 255 232 258.582 232 263V287C232 291.418 228.418 295 224 295C219.582 295 216 298.582 216 303V327C216 331.418 219.582 335 224 335C228.418 335 232 338.582 232 343V367C232 371.418 235.582 375 240 375" stroke="#3B82F6" stroke-width="8" stroke-linecap="round"/>
+  
+  <path d="M360 255C364.418 255 368 258.582 368 263V287C368 291.418 371.582 295 376 295C380.418 295 384 298.582 384 303V327C384 331.418 380.418 335 376 335C371.582 335 368 338.582 368 343V367C368 371.418 364.418 375 360 375" stroke="#3B82F6" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- PJP Text in circle -->
+  <text x="300" y="335" text-anchor="middle" fill="#3B82F6" font-family="Arial, sans-serif" font-weight="bold" font-size="48">PJP</text>
+  
+  <!-- Main title -->
+  <text x="500" y="280" fill="white" font-family="Arial, sans-serif" font-weight="bold" font-size="72">PJP</text>
+  <text x="500" y="340" fill="rgba(255,255,255,0.9)" font-family="Arial, sans-serif" font-weight="normal" font-size="36">Perfect Json Parser</text>
+  
+  <!-- Subtitle -->
+  <text x="500" y="420" fill="rgba(255,255,255,0.8)" font-family="Arial, sans-serif" font-weight="normal" font-size="28">실시간 JSON 파싱 · 검증 · 시각화 도구</text>
+  
+  <!-- Features -->
+  <g fill="rgba(255,255,255,0.7)" font-family="Arial, sans-serif" font-size="20">
+    <text x="500" y="480">✓ 실시간 JSON 검증</text>
+    <text x="500" y="510">✓ 트리 구조 시각화</text>
+    <text x="500" y="540">✓ 오류 위치 표시</text>
+    <text x="750" y="480">✓ 상세 수정 가이드</text>
+    <text x="750" y="510">✓ 다크 모드 지원</text>
+    <text x="750" y="540">✓ PWA 지원</text>
+  </g>
+  
+  <!-- Decorative elements -->
+  <circle cx="1000" cy="150" r="3" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="1050" cy="200" r="5" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="950" cy="180" r="2" fill="rgba(255,255,255,0.5)"/>
+  <circle cx="1080" cy="120" r="4" fill="rgba(255,255,255,0.2)"/>
+  
+  <circle cx="1020" cy="450" r="3" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="980" cy="500" r="5" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="1100" cy="480" r="2" fill="rgba(255,255,255,0.5)"/>
+</svg> 

@@ -201,7 +201,8 @@
   
   // 샘플 JSON 데이터
   const sampleJson = `{
-  "name": "Perfect JSON Parse",
+  "name": "PJP",
+  "fullName": "Perfect Json Parser", 
   "version": "1.0.0",
   "description": "JSON 파싱 및 검증 도구",
   "features": [
@@ -232,7 +233,7 @@
   "metadata": {
     "created": "2024-01-15T10:30:00Z",
     "updated": null,
-    "tags": ["json", "parser", "validator"]
+    "tags": ["json", "parser", "validator", "pjp"]
   }
 }`;
 
@@ -330,8 +331,8 @@
 </script>
 
 <svelte:head>
-  <title>Perfect JSON Parse - JSON 파싱 및 검증 도구</title>
-  <meta name="description" content="JSON 파싱 오류를 정확하게 찾아주고 계층적 구조로 시각화해주는 도구입니다." />
+  <title>PJP - Perfect Json Parser</title>
+  <meta name="description" content="PJP는 JSON 파싱 오류를 정확하게 찾아주고 계층적 구조로 시각화해주는 도구입니다." />
 </svelte:head>
 
 <main class="h-screen bg-gray-50 flex flex-col" data-theme={isDarkMode ? 'dark' : 'light'}>
@@ -340,8 +341,24 @@
     <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
         <div class="flex items-center">
-          <h1 class="text-2xl font-bold text-gray-900">Perfect JSON Parse</h1>
-          <span class="ml-3 text-sm text-gray-500">JSON 파싱 & 검증 도구</span>
+          <div class="flex items-center gap-3 pjp-logo-container">
+            <!-- PJP Logo -->
+            <div class="w-10 h-10">
+              <svg width="40" height="40" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="32" r="30" fill="#3B82F6" stroke="#2563EB" stroke-width="2"/>
+                <path d="M18 20C16.8954 20 16 20.8954 16 22V26C16 27.1046 15.1046 28 14 28C12.8954 28 12 28.8954 12 30V34C12 35.1046 12.8954 36 14 36C15.1046 36 16 36.8954 16 38V42C16 43.1046 16.8954 44 18 44" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M46 20C47.1046 20 48 20.8954 48 22V26C48 27.1046 48.8954 28 50 28C51.1046 28 52 28.8954 52 30V34C52 35.1046 51.1046 36 50 36C48.8954 36 48 36.8954 48 38V42C48 43.1046 47.1046 44 46 44" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                <text x="32" y="36" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-weight="bold" font-size="12">PJP</text>
+                <circle cx="26" cy="28" r="1.5" fill="rgba(255,255,255,0.6)"/>
+                <circle cx="32" cy="26" r="1" fill="rgba(255,255,255,0.4)"/>
+                <circle cx="38" cy="28" r="1.5" fill="rgba(255,255,255,0.6)"/>
+              </svg>
+            </div>
+            <div>
+              <h1 class="text-2xl font-bold text-gray-900">PJP</h1>
+              <span class="text-xs text-gray-500 -mt-1 block">Perfect Json Parser</span>
+            </div>
+          </div>
         </div>
         
         <div class="flex items-center space-x-4">
@@ -2022,5 +2039,23 @@
   :global([data-theme="dark"]) .view-mode-tab.active:hover {
     color: #3b82f6;
     background-color: #374151;
+  }
+
+  /* PJP Logo and Header Styles */
+  .pjp-logo-container {
+    transition: transform 0.2s ease;
+  }
+
+  .pjp-logo-container:hover {
+    transform: scale(1.05);
+  }
+
+  /* 다크 모드에서 헤더 텍스트 스타일링 */
+  :global([data-theme="dark"]) .pjp-logo-container h1 {
+    color: #f9fafb;
+  }
+
+  :global([data-theme="dark"]) .pjp-logo-container span {
+    color: #9ca3af;
   }
 </style>
