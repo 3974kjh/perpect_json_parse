@@ -1,0 +1,282 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 커스텀 스타일 */
+@layer base {
+  html, body {
+    font-family: Inter, system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  /* 코드 에디터 */
+  .code-editor {
+    font-family: 'JetBrains Mono', 'Fira Code', Monaco, Consolas, monospace;
+    font-size: 0.875rem;
+    line-height: 1.625;
+    white-space: pre-wrap;
+  }
+
+  /* JSON 입력 에디터 개선 */
+  .json-editor-container {
+    position: relative;
+    display: block;
+  }
+
+  .json-editor-container textarea {
+    padding-left: 3.5rem; /* 라인 번호 공간 확보 */
+    font-family: 'JetBrains Mono', 'Fira Code', Monaco, Consolas, monospace;
+    line-height: 1.625;
+    tab-size: 2;
+    background: transparent;
+    position: relative;
+    z-index: 2;
+  }
+
+  .line-numbers {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3rem;
+    padding: 0.75rem 0.5rem 0.75rem 0.25rem;
+    pointer-events: none;
+    color: #9ca3af;
+    font-family: 'JetBrains Mono', 'Fira Code', Monaco, Consolas, monospace;
+    font-size: 0.75rem;
+    line-height: 1.625;
+    user-select: none;
+    text-align: right;
+    background-color: #f8fafc;
+    border-right: 1px solid #e2e8f0;
+    z-index: 1;
+    overflow-y: auto;
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .line-numbers::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+  }
+
+  .line-numbers .line-number {
+    display: block;
+    height: 1.625rem;
+    line-height: 1.625rem;
+  }
+
+  .line-numbers .error-line {
+    color: #ef4444;
+    font-weight: 600;
+    background-color: #fef2f2;
+    padding: 0 0.25rem;
+    margin: 0 -0.25rem;
+    border-radius: 0.125rem;
+  }
+
+  /* 오류 하이라이트 */
+  .json-editor-container textarea.has-errors {
+    border-left: 4px solid #ef4444;
+  }
+
+  .error-highlight {
+    background-color: rgba(239, 68, 68, 0.1);
+    border-left: 3px solid #ef4444;
+    animation: pulse-error 2s infinite;
+  }
+
+  @keyframes pulse-error {
+    0%, 100% { background-color: rgba(239, 68, 68, 0.1); }
+    50% { background-color: rgba(239, 68, 68, 0.2); }
+  }
+
+  /* 트리 노드 */
+  .tree-node {
+    @apply flex items-center px-2 py-1 rounded cursor-pointer hover:bg-gray-100;
+  }
+
+  .tree-node-key {
+    @apply font-semibold text-purple-600;
+  }
+
+  .tree-node-value {
+    @apply ml-2 text-gray-700;
+  }
+
+  .tree-node-type-string { @apply text-green-600; }
+  .tree-node-type-number { @apply text-blue-600; }
+  .tree-node-type-boolean { @apply text-yellow-600; }
+  .tree-node-type-null { @apply text-gray-500; }
+
+  /* 오류 분석 패널 애니메이션 */
+  .error-analysis-panel {
+    animation: slideInRight 0.3s ease-out;
+  }
+
+  @keyframes slideInRight {
+    from {
+      transform: translateX(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  /* 오류 카드 스타일 */
+  .error-card {
+    transition: all 0.2s ease;
+  }
+
+  .error-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  }
+
+  /* 버튼 상태 개선 */
+  .action-button {
+    @apply px-3 py-1.5 text-xs font-medium rounded-md transition-all duration-200;
+  }
+
+  .action-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
+  }
+
+  .action-button.primary {
+    @apply bg-blue-600 text-white;
+  }
+
+  .action-button.primary:hover {
+    @apply bg-blue-700;
+  }
+
+  .action-button.success {
+    @apply bg-green-600 text-white;
+  }
+
+  .action-button.success:hover {
+    @apply bg-green-700;
+  }
+
+  /* 코드 예시 스타일 */
+  .code-example {
+    @apply font-mono text-xs;
+  }
+
+  .code-example .error-example {
+    @apply bg-red-100 text-red-800 p-2 rounded border-l-4 border-red-400;
+  }
+
+  .code-example .correct-example {
+    @apply bg-green-100 text-green-800 p-2 rounded border-l-4 border-green-400;
+  }
+
+  /* 상태 표시 개선 */
+  .status-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .status-badge.success {
+    @apply bg-green-100 text-green-800;
+  }
+
+  .status-badge.error {
+    @apply bg-red-100 text-red-800;
+  }
+
+  .status-badge.pending {
+    @apply bg-gray-100 text-gray-800;
+  }
+
+  /* 스크롤바 */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #9ca3af transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: #9ca3af;
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: #6b7280;
+  }
+}
+
+/* 다크 모드 커스텀 스타일 */
+@layer utilities {
+  [data-theme="dark"] {
+    @apply bg-gray-900 text-gray-100;
+  }
+
+  [data-theme="dark"] .bg-white {
+    @apply bg-gray-800;
+  }
+
+  [data-theme="dark"] .border-gray-200 {
+    @apply border-gray-700;
+  }
+
+  [data-theme="dark"] .text-gray-900 {
+    @apply text-gray-100;
+  }
+
+  [data-theme="dark"] .text-gray-600 {
+    @apply text-gray-400;
+  }
+
+  [data-theme="dark"] .bg-gray-50 {
+    @apply bg-gray-900;
+  }
+
+  [data-theme="dark"] textarea {
+    @apply bg-gray-800 border-gray-700 text-gray-100;
+  }
+
+  [data-theme="dark"] .tree-node:hover {
+    @apply bg-gray-700;
+  }
+
+  [data-theme="dark"] .tree-node-value {
+    @apply text-gray-300;
+  }
+
+  /* 다크 모드에서 라인 번호 */
+  [data-theme="dark"] .line-numbers {
+    @apply text-gray-500;
+    background-color: #1f2937;
+    border-right-color: #374151;
+  }
+
+  [data-theme="dark"] .line-numbers .error-line {
+    @apply text-red-400;
+    background-color: #7f1d1d;
+  }
+
+  /* 다크 모드에서 오류 하이라이트 */
+  [data-theme="dark"] .error-highlight {
+    background-color: rgba(239, 68, 68, 0.2);
+    border-left-color: #f87171;
+  }
+
+  [data-theme="dark"] .json-editor-container textarea.has-errors {
+    border-left-color: #f87171;
+  }
+
+  [data-theme="dark"] .json-editor-container textarea {
+    background-color: #1f2937;
+    color: #f9fafb;
+  }
+} 
