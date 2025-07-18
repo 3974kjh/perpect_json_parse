@@ -12,7 +12,4 @@ zone_name = "your-domain.com"
 [build]
 command = "npm run build"
 cwd = "."
-watch_dir = "src"
-
-[pages]
-build_output_dir = ".svelte-kit/cloudflare" 
+watch_dir = "src" 
