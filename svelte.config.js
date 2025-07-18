@@ -9,6 +9,7 @@ const config = {
 
 	kit: {
 		// Cloudflare Pages adapter for SvelteKit
+		// If this doesn't work, try: adapter: adapter({ mode: 'directory' })
 		adapter: adapter()
 	}
 };
